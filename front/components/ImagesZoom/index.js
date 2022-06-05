@@ -18,34 +18,32 @@ const ImagesZoom = ({ images, onClose }) => {
 
     const slider = useRef();
 
-    const inputRef = useRef();
-    useEffect(() => { inputRef.current.focus(); }, []);
+    // const inputRef = useRef();
+    // useEffect(() => { inputRef.current.focus(); }, []);
 
-    const focusRef = () => {
-        inputRef.current.focus();
-    }
+    // const focusRef = () => {
+    //     inputRef.current.focus();
+    // }
 
-    const onKeyDown = (e) => {
-        console.log(e.keyCode);
-        //37, left arrow key
-        if (e.keyCode === 37) {
-            slider.current.prev();
-        }
-        //39, right arrow key
-        if (e.keyCode === 39) {
-            slider.current.next();
-        }
-        //27,esc key
-        if (e.keyCode === 27) {
-            onClose();
-        }
-    }
+    // const onKeyDown = (e) => {
+    //     console.log(e.keyCode);
+    //     //37, left arrow key
+    //     if (e.keyCode === 37) {
+    //         slider.current.prev();
+    //     }
+    //     //39, right arrow key
+    //     if (e.keyCode === 39) {
+    //         slider.current.next();
+    //     }
+    //     //27,esc key
+    //     if (e.keyCode === 27) {
+    //         onClose();
+    //     }
+    // }
 
     return (
         <>
-            <input ref={inputRef} onKeyDown={onKeyDown} ></input>
-            <div className='zoom' onClick={focusRef}>
-
+            <div className='zoom'>
                 <header>
                     <span>{imagesIcon}</span>
                     <span style={{ color: 'white', marginLeft: '10px' }}>Images</span>

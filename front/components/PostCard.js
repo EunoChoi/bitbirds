@@ -81,7 +81,7 @@ const PostCard = ({ post }) => {
                     //post에 image가 존재한다면 Card 컴포넌트 내부에 이미지를 삽입한다
                     cover={post.Images && <PostImages images={post.Images} />}
                     extra={<div>
-                        <Link href={userInfoUrl}><Button style={{ marginRight: '10px' }}>View</Button></Link>
+                        <Link href={userInfoUrl}><Button style={{ marginRight: '10px' }}>User Info</Button></Link>
                         {id && <FollowButton post={post} />}
                     </div>}
 
