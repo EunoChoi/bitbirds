@@ -24,7 +24,7 @@ import { LOAD_MY_INFO_REQUEST } from "../reducers/user";
 
 const Profile = () => {
 
-    const { me, loadMyInfoDone, loadUserDone, changeNicknameDone } = useSelector((state) => state.user);
+    const { logOutDone, me, loadMyInfoDone, loadUserDone, changeNicknameDone } = useSelector((state) => state.user);
 
     // SSR로 대체
     // useEffect(() => {
@@ -45,7 +45,10 @@ const Profile = () => {
         if ((!loadMyInfoDone && !loadUserDone)) {
             Router.replace('/');
         }
-    }, [loadMyInfoDone, loadUserDone]);
+        if (logOutDone) {
+            Router.replace('/');
+        }
+    }, [loadMyInfoDone, loadUserDone, logOutDone]);
 
     return (
         <>
