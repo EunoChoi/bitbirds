@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "next -p 4000",
-    "build": "next build"
+    "build": "NODE_ENV=production next build"
   },
   "author": "euno",
   "license": "ISC",
