@@ -37,7 +37,7 @@ app.use('/', express.static(path.join(__dirname, 'uploads')));
 
 //cors 오류 방지를 위한 미들웨어
 app.use(cors({
-    origin: true,
+    origin: ['http://localhost:80', 'bitbirds.com'],
     credentials: true,
 }));
 app.use(express.json()); //프론트에서 json 형태로 보낸 데이터를 req.body에 넣는 역할을 한다
@@ -65,7 +65,7 @@ app.use('/user', userRouter);
 
 
 //로컬호스트 3065로 서버를 실행, 이 서버에 프론트엔드 코드에서 접근해서 데이터를 주고받는다
-//aws 80포트
+//aws 80포트 뚤어둠
 app.listen(80, () => {
     console.log('server on');
 });
