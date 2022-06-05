@@ -37,7 +37,8 @@ app.use('/', express.static(path.join(__dirname, 'uploads')));
 
 //cors 오류 방지를 위한 미들웨어
 app.use(cors({
-    origin: ['http://localhost:80', 'bitbirds.com'],
+    origin: true,
+    // origin: ['http://localhost:80', 'bitbirds.com'],
     credentials: true,
 }));
 app.use(express.json()); //프론트에서 json 형태로 보낸 데이터를 req.body에 넣는 역할을 한다
