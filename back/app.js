@@ -65,6 +65,7 @@ app.use('/user', userRouter);
 
 
 //로컬호스트 3065로 서버를 실행, 이 서버에 프론트엔드 코드에서 접근해서 데이터를 주고받는다
-app.listen(3065, () => {
+//aws 80포트
+app.listen(80, () => {
     console.log('server on');
 });
