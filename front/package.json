@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next -p 4000",
     "build": "NODE_ENV=production next build",
-    "start": "NODE_ENV=production next start -p 80"
+    "start": "NODE_ENV=production next start -p 80",
+    "pm2start": "NODE_ENV=production npx pm2 start npm -- start -p 80"
   },
   "author": "euno",
   "license": "ISC",

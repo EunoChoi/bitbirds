@@ -37,7 +37,7 @@ app.use('/', express.static(path.join(__dirname, 'uploads')));
 
 //cors 오류 방지를 위한 미들웨어
 app.use(cors({
-    origin: true,
+    origin: ['http://bitbirds.site'],
     // origin: ['http://localhost:80', 'bitbirds.com'],
     credentials: true,
 }));
@@ -49,6 +49,11 @@ app.use(session({
     saveUninitialized: false,
     resave: false,
     secret: process.env.COOKIE_SECRET, //이거 통해서 랜덤 토큰이 생성된다. 코드가 털리면 해킹 가능
+    cookie: {
+        httpOnly: true,
+        secure: false,
+        domain: process.env.NODE_ENV === 'production' && '.bitbirds.site',
+    }
 }));
 app.use(passport.initialize());
 app.use(passport.session());

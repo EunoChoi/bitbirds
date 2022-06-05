@@ -1,2 +1,2 @@
-export const backUrl = 'http://3.34.137.202';
-export const frontUrl = 'http://15.164.166.170';
+export const backUrl = 'http://api.bitbirds.site';
+export const frontUrl = 'http://bitbirds.site';
