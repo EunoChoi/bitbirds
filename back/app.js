@@ -37,7 +37,7 @@ app.use('/', express.static(path.join(__dirname, 'uploads')));
 
 //cors 오류 방지를 위한 미들웨어
 app.use(cors({
-    origin: ['http://bitbirds.site'],
+    origin: 'http://bitbirds.site',
     // origin: ['http://localhost:80', 'bitbirds.com'],
     credentials: true,
 }));
