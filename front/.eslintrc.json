@@ -1,0 +1,38 @@
+{
+    "parser": "babel-eslint",
+    //바벨이해석해서 최신문법도 에러가 발새하지 않음
+    "parserOption": {
+        "ecmaVersion": 2022,
+        "courseType": "module",
+        "ecamFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+    "extends": [
+        // "eslint:recommended",
+        // recommended는 너무 기준이 느슨해서 airbnb 기준으로 변경
+        "airbnb"
+        // "plugin:react/recommended"
+    ],
+    "plugins": [
+        "import",
+        "react",
+        "react-hooks"
+    ],
+    "rules": {
+        // 필요없는 룰 정리
+        "jsx-a11y/label-has-associated-control": "off",
+        "jsx-a11y/anchor-isvalid": "off",
+        "no-console": "off",
+        "no-underscore-dangle": "off",
+        "react/forbid-prop-types": "off",
+        "react/jsx-filename-extension": "off",
+        "object-curly-newline": "off",
+        "linebreak-style": "off"
+    }
+}

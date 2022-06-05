@@ -1,0 +1,408 @@
+body {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.ant-input {
+    border: none;
+}
+
+.ant-input:focus {
+    border: none;
+    outline: none !important;
+    text-shadow: none;
+    box-shadow: none;
+}
+
+.ant-input:hover {
+    border: none;
+    outline: none !important;
+    text-shadow: none;
+    box-shadow: none;
+}
+
+/* AppLayout.js header class */
+.header {
+    position: fixed;
+    top: 0px;
+    z-index: 100;
+    margin: 0;
+
+    background-color: mediumaquamarine;
+    font-weight: 600;
+    font-size: 20px;
+
+    height: 65px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+
+    border: none;
+}
+
+.headerTitleText {
+    color: salmon;
+    font-weight: 800;
+    font-size: 30px;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+.headerText {
+    /* color:#1890ff; */
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.searchHash {
+    width: 150px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.ant-btn-primary {
+    border-color: salmon;
+    background-color: salmon;
+}
+
+.ant-menu-submenu-popup>.ant-menu,
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: mediumaquamarine;
+}
+
+/* AppLayout main class */
+.main {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+    display: flex;
+    height: auto;
+}
+
+.leftArea {
+    z-index: 60;
+    position: fixed;
+    top: 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 350px;
+    height: calc(100vh - 65px);
+
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+
+    padding: 40px;
+
+    background-color: rgba(102, 221, 170, 0.1);
+
+    box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.rightArea {
+    width: calc(100vw - 350px);
+    position: relative;
+    margin-left: 350px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 0px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginForm {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+
+    box-sizing: border-box;
+}
+
+.loginInput {
+    padding-left: 20px;
+    width: 90%;
+    padding: 7px 20px;
+    margin-top: 10px;
+    border-radius: 50px;
+}
+
+.loginBtn {
+    border-radius: 50px;
+    width: 80px !important;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.loginBtn:nth-child(2) {
+    margin-left: 10px;
+}
+
+.rightArea_formArea {
+    padding: 15px;
+    padding-bottom: 40px;
+}
+
+.postCard {
+    margin: 20px 0px;
+    width: 100%;
+    box-Shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.userProfile {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.userProfile__action {
+    padding: 5px;
+
+    /* overflow: hidden; */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+.logoutBtn {
+    margin-top: 24px;
+    padding: 5px 0px;
+
+    border-radius: 50px;
+    border: none;
+    background-color: salmon;
+    color: white;
+    text-align: center;
+    width: 80%;
+}
+
+h2 {
+    color: salmon;
+    font-weight: 800;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+
+}
+
+.inputArea {
+    margin: 15px;
+}
+
+.inputArea label {
+    font-weight: 600;
+    font-size: 1.2em;
+    color: gray;
+}
+
+.inputArea Input {
+    border-radius: 16px;
+    margin-top: 5px;
+}
+
+.inputArea p {
+    margin-top: 5px;
+
+    border-radius: 16px;
+    border: solid rgba(0, 0, 0, 0.15) 1px;
+    background: white;
+    height: 100px;
+    /* overflow: auto; */
+    padding: 20px;
+}
+
+.centerBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.warning {
+    font-weight: 600;
+    padding: 10px;
+    color: tomato;
+    text-align: center;
+}
+
+
+
+.zoom {
+    z-index: 20000;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+    ;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.zoom header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+
+    font-size: 50px;
+    font-weight: 600;
+    color: salmon;
+    text-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.ant-carousel {
+    display: flex;
+    justify-content: center;
+}
+
+.slick-slider {
+    width: 80vw;
+    height: 80vh;
+}
+
+.imgWrapper {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+
+}
+
+.slick-slider img {
+    border-radius: 15px;
+    width: auto;
+    height: auto;
+    max-width: 80vw;
+    max-height: 70vh;
+}
+
+.slick-dots {
+    margin: 0 !important;
+}
+
+.zoom footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+.zoom footer button {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 34px;
+}
+
+.slick-next:before,
+.slick-prev:before {
+    font-size: 40px !important;
+    color: white;
+}
+
+.postInputForm {
+    position: fixed;
+    bottom: 0px;
+    z-index: 50;
+    width: calc(100vw - 350px);
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.PostInputTextArea {
+    padding-left: 40px;
+}
+
+.profilePage {
+    padding: 40px;
+}
+
+.topButton {
+    z-index: 95;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    padding: 0px;
+
+    text-align: center;
+    vertical-align: middle;
+
+    border: none;
+    border-radius: 25px;
+    background-color: salmon;
+    font-size: 30px;
+    color: white;
+
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+.folloCard {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 700px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .leftArea {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .loginInput {
+        width: 60vw;
+    }
+
+    .rightArea {
+        width: 100vw;
+        margin-top: 0px;
+        margin-left: 0px;
+
+        padding-top: 80px;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .postInputForm {
+        z-index: 90;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 950px) {
+    .rightArea {
+        padding: 0px 11vw;
+    }
+
+    .PostInputTextArea {
+        padding-left: 11vw;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .rightArea {
+        padding: 0px 18vw;
+    }
+
+    .PostInputTextArea {
+        padding-left: 18vw;
+    }
+}
