@@ -82,7 +82,7 @@ const PostCard = ({ post }) => {
                     cover={post.Images && <PostImages images={post.Images} />}
                     extra={<div>
                         <Link href={userInfoUrl}><Button style={{ marginRight: '10px' }}>View</Button></Link>
-                        {id && <FollowButton post={post} />}
+                        {(id !== null) && (id !== post.User.id) ? <FollowButton post={post} /> : null}
                     </div>}
 
                     //action옵션에 antd에서 지원하는 버튼 삽입
