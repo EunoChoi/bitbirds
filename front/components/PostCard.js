@@ -24,7 +24,7 @@ const PostCard = ({ post }) => {
     //state.user.username null이 아내라면 state.user.id를 불러온다
     //user id
 
-    const id = useSelector((state) => state.user.logInDone && state.user.me.id);
+    const id = useSelector((state) => state.user.me && state.user.me.id);
     const like = post.Likers && post.Likers.find((v) => v.id === id); //post.Likers는 fullPost include 에서 정해줬다. load로 불러줄때도
     const { logInDone } = useSelector((state) => state.user);
     const { deletePostLoading } = useSelector((state) => state.post);
@@ -82,7 +82,7 @@ const PostCard = ({ post }) => {
                     cover={post.Images && <PostImages images={post.Images} />}
                     extra={<div>
                         <Link href={userInfoUrl}><Button style={{ marginRight: '10px' }}>View</Button></Link>
-                        {(id !== null) && (id !== post.User.id) ? <FollowButton post={post} /> : null}
+                        {id && <FollowButton post={post} />}
                     </div>}
 
                     //action옵션에 antd에서 지원하는 버튼 삽입

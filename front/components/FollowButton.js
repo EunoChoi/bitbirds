@@ -8,12 +8,8 @@ const FollowButton = ({ post }) => {
 
     const dispatch = useDispatch();
     const { me } = useSelector((state) => state.user);
-    let isFollowing;
-    useEffect(() => {
-        if (me && me.FollowButton) {
-            isFollowing = me.Followings.find((v) => (v.id === post.User.id));
-        }
-    }, [me, me.FollowButton])
+    const isFollowing = me && me.Followings.find((v) => v.id === post.User.id);
+
 
 
     const followOrUnFollow = () => {
@@ -35,6 +31,10 @@ const FollowButton = ({ post }) => {
                 },
             });
         }
+    }
+    //내 게시글은 버튼이 안나타나도록
+    if (post.User.id === me.id) {
+        return null;
     }
     return (
         <>
