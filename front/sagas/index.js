@@ -5,7 +5,9 @@ import postSaga from './post';
 import userSaga from './user';
 
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3065';
+import { backUrl } from '../config/config';
+
+axios.defaults.baseURL = backUrl;
 axios.defaults.withCredentials = true;
 
 //generator function이용

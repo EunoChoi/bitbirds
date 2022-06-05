@@ -7,6 +7,7 @@ import ImagesZoom from "./ImagesZoom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { backUrl } from "../config/config";
 const plusIcon = <FontAwesomeIcon icon={faCirclePlus} />
 
 
@@ -31,8 +32,8 @@ const PostImages = ({ images }) => {
                     //role='presentation', screen reader에서 클릭안해도 됨을 알려준다
                     role='presentation'
                     style={{ width: '100%', aspectRatio: '1/1', objectFit: 'cover' }}
-                    src={`http://localhost:3065/${images[0].src}`}
-                    alt={`http://localhost:3065/${images[0].src}`}
+                    src={`${backUrl}/${images[0].src}`}
+                    alt={`${backUrl}/${images[0].src}`}
                     onClick={onZoom} />
                 {showImageZoom &&
                     <ImagesZoom
@@ -51,14 +52,14 @@ const PostImages = ({ images }) => {
                     <img
                         style={{ width: '50%' }}
                         role='presentation'
-                        src={`http://localhost:3065/${images[0].src}`}
-                        alt={`http://localhost:3065/${images[0].src}`}
+                        src={`${backUrl}/${images[0].src}`}
+                        alt={`${backUrl}/${images[0].src}`}
                         onClick={onZoom} />
                     <img
                         style={{ width: '50%' }}
                         role='presentation'
-                        src={`http://localhost:3065/${images[1].src}`}
-                        alt={`http://localhost:3065/${images[1].src}`}
+                        src={`${backUrl}/${images[1].src}`}
+                        alt={`${backUrl}/${images[1].src}`}
                         onClick={onZoom} />
                     {showImageZoom && <ImagesZoom setShowImageZoom={setShowImageZoom} images={images} onClose={onClose} />}
 
@@ -76,8 +77,8 @@ const PostImages = ({ images }) => {
                     <img
                         role='presentation'
                         style={{ width: '50%', height: 'auto' }}
-                        src={`http://localhost:3065/${images[0].src}`}
-                        alt={`http://localhost:3065/${images[0].src}`}
+                        src={`${backUrl}/${images[0].src}`}
+                        alt={`${backUrl}/${images[0].src}`}
                     />
                     <div
                         role='presentation'

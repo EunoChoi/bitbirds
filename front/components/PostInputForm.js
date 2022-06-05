@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import { faFileArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { backUrl } from '../config/config';
 
 
 const send = <FontAwesomeIcon icon={faPaperPlane} />
@@ -135,7 +136,7 @@ const PostInputForm = () => {
                 <div style={{ display: 'flex', overflowX: 'scroll', alignItems: 'flex-end' }}>
                     {imagePaths.map((v, i) => (
                         <div key={v} style={{ display: 'flex', flexDirection: 'column', marginLeft: '10px', marginBottom: '10px' }}>
-                            <img src={`http://localhost:3065/${v}`} alt={v} style={{ width: '180px', height: '200px', objectFit: 'cover' }}></img>
+                            <img src={`${backUrl}/${v}`} alt={v} style={{ width: '180px', height: '200px', objectFit: 'cover' }}></img>
                             <Button
                                 //인자를 받아 사용하는 함수 onRemoveImage를 onClick 리스너에 붙이고 싶을경우, 고차함수 활용
                                 onClick={() => { onRemoveImage(i) }}

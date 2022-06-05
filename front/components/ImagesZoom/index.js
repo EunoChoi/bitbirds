@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { faImages } from '@fortawesome/free-solid-svg-icons';
+import { backUrl } from '../../config/config';
 
 const xmark = <FontAwesomeIcon icon={faCircleXmark} />
 const imagesIcon = <FontAwesomeIcon icon={faImages} />
@@ -56,7 +57,7 @@ const ImagesZoom = ({ images, onClose }) => {
                         dots={false}>
                         {images.map((v, index) => (
                             <div key={v} className='imgWrapper'>
-                                <img src={`http://localhost:3065/${v.src}`} alt={`http://localhost:3065/${v.src}`} />
+                                <img src={`${backUrl}/${v.src}`} alt={`${backUrl}/${v.src}`} />
                             </div>
                         ))}
                     </Carousel>

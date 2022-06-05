@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next -p 4000",
     "build": "NODE_ENV=production next build",
-    "start": "NODE_ENV=production next start -p 3060"
+    "start": "NODE_ENV=production next start -p 80"
   },
   "author": "euno",
   "license": "ISC",
