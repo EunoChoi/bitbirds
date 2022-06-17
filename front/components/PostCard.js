@@ -125,7 +125,7 @@ const PostCard = ({ post }) => {
 
                     <Card.Meta
                         avatar={post.Retweet ? null : <Avatar>{post.User.nickname && post.User.nickname[0]}</Avatar>}
-                        title={post.RetweetId === null ? post.User.nickname : `${post.User.nickname}`}
+                        title={post.RetweetId === null ? post.User.nickname : `${post.User.nickname}'s Retweet`}
                         description={<PostCardContent postData={post.content} />}
                     />
                     {/* 리트윗 카드 */}
