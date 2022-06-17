@@ -44,10 +44,10 @@ const ImagesZoom = ({ images, onClose }) => {
     return (
         <>
             <div className='zoom'>
-                <header>
+                {/* <header>
                     <span>{imagesIcon}</span>
                     <span style={{ color: 'white', marginLeft: '10px' }}>Images</span>
-                </header>
+                </header> */}
                 <section >
                     <Carousel
                         arrows
@@ -55,15 +55,15 @@ const ImagesZoom = ({ images, onClose }) => {
                         dots={false}>
                         {images.map((v, index) => (
                             <div key={v} className='imgWrapper'>
-                                <img src={`${backUrl}/${v.src}`} alt={`${backUrl}/${v.src}`} />
+                                <img onClick={onClose} src={`${backUrl}/${v.src}`} alt={`${backUrl}/${v.src}`} />
                             </div>
                         ))}
                     </Carousel>
                 </section>
 
-                <footer>
+                {/* <footer>
                     <button onClick={onClose}>{xmark}</button>
-                </footer>
+                </footer> */}
             </div>
         </>
     )
