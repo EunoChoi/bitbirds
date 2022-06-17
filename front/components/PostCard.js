@@ -94,10 +94,10 @@ const PostCard = ({ post }) => {
                         <RetweetOutlined key='retweet' onClick={onRetweet} />,
 
                         // ToggleLike가 true일때 빨간색 하트가 나타난다
-                        like ? <HeartTwoTone twoToneColor='#eb2f96' key='heart' onClick={onUnLike} />
-                            : <HeartOutlined key='heart' onClick={onLike} />,
+                        like ? <span><HeartTwoTone twoToneColor='#eb2f96' key='heart' onClick={onUnLike} /> {post.Likers.length}</span>
+                            : <span><HeartOutlined key='heart' onClick={onLike} /> {post.Likers.length}</span>,
 
-                        <MessageOutlined key='comment' onClick={onToggleComment} />,
+                        <span><MessageOutlined key='comment' onClick={onToggleComment} /> {post.Comments.length}</span>,
 
                         //popover는 ...버튼 hover시 펼쳐진다.
                         <Popover key='more' content={(
