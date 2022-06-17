@@ -73,14 +73,18 @@ app.use('/user', userRouter);
 
 //로컬호스트 3065로 서버를 실행, 이 서버에 프론트엔드 코드에서 접근해서 데이터를 주고받는다
 //aws 80포트 뚤어둠
-let backPort = 100;
-if (process.env.NODE_ENV === 'production') {
-    backPort = 80;
-}
-else if (process.env.NODE_ENV === 'development') {
-    backPort = 3065;
-}
+// let backPort = 100;
+// if (process.env.NODE_ENV === 'production') {
+//     backPort = 80;
+// }
+// else if (process.env.NODE_ENV === 'development') {
+//     backPort = 3065;
+// }
 
-app.listen(backPort, () => {
-    console.log('server on', backPort, process.env.NODE_ENV);
+// app.listen(backPort, () => {
+//     console.log('server on', backPort, process.env.NODE_ENV);
+// });
+
+app.listen(80, () => {
+    console.log('server on at 80 port');
 });

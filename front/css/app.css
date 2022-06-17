@@ -78,6 +78,10 @@ body {
     height: auto;
 }
 
+.ant-card-extra {
+    width: 100%;
+}
+
 .leftArea {
     z-index: 60;
     position: fixed;

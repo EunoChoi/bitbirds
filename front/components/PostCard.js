@@ -80,10 +80,14 @@ const PostCard = ({ post }) => {
                 <Card
                     //post에 image가 존재한다면 Card 컴포넌트 내부에 이미지를 삽입한다
                     cover={post.Images && <PostImages images={post.Images} />}
-                    extra={<div>
-                        <Link href={userInfoUrl}><Button style={{ marginRight: '10px' }}>User Info</Button></Link>
-                        {id && <FollowButton post={post} />}
-                    </div>}
+                    extra={
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <span style={{ color: 'grey' }}>{moment(post.createdAt).format('MMM Do YY, h:mm')}</span>
+                            <div>
+                                <Link href={userInfoUrl}><Button>User Info</Button></Link>
+                                {id && <FollowButton post={post} />}
+                            </div>
+                        </div>}
 
                     //action옵션에 antd에서 지원하는 버튼 삽입
                     actions={[
@@ -111,7 +115,7 @@ const PostCard = ({ post }) => {
                             <EllipsisOutlined />
                         </Popover>,
                     ]}>
-                    <div style={{ float: 'right', color: 'grey' }}>{moment(post.createdAt).format('MMM Do YY, h:mm')}</div>
+
                     <Card.Meta
                         avatar={post.Retweet ? null : <Avatar>{post.User.nickname && post.User.nickname[0]}</Avatar>}
                         title={post.RetweetId === null ? post.User.nickname : `💡 ${post.User.nickname}`}

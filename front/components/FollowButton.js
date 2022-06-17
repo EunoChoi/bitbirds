@@ -38,7 +38,7 @@ const FollowButton = ({ post }) => {
     }
     return (
         <>
-            <Button onClick={followOrUnFollow}>
+            <Button style={{ marginLeft: '10px' }} onClick={followOrUnFollow}>
                 {isFollowing ? 'UnFollow' : 'Follow'}
             </Button>
         </>
