@@ -39,15 +39,15 @@ const PostCard = ({ post }) => {
         setToggleComment(false)
     }, [])
 
-    const onRetweet = useCallback(() => {
-        if (!id) { return alert('Please login for service'); }
-        dispatch({
-            type: RETWEET_REQUEST,
-            //게시글 id를 서버에 보냄 ==> post.id
-            data: { postId: post.id },
-        });
-        window.scrollTo(0, 0);
-    }, [id]);
+    // const onRetweet = useCallback(() => {
+    //     if (!id) { return alert('Please login for service'); }
+    //     dispatch({
+    //         type: RETWEET_REQUEST,
+    //         //게시글 id를 서버에 보냄 ==> post.id
+    //         data: { postId: post.id },
+    //     });
+    //     window.scrollTo(0, 0);
+    // }, [id]);
 
     const onLike = useCallback(() => {
         if (!id) { return alert('Please login for service'); }

@@ -20,6 +20,9 @@ const CommentInputForm = ({ post }) => {
     const { logInDone } = useSelector((state) => state.user);
     const { id } = logInDone ? useSelector((state) => state.user) : null;
 
+    //input form에 입력되는 state, 커스텀 훅스를 사용해서 입력되는 변화를 바로 commentText state로 받아온다
+    const [commentText, setCommentText] = useState('');
+
 
     useEffect(() => {
         if (addCommentDone) {
@@ -27,8 +30,7 @@ const CommentInputForm = ({ post }) => {
         }
     }, [addCommentDone])
 
-    //input form에 입력되는 state, 커스텀 훅스를 사용해서 입력되는 변화를 바로 commentText state로 받아온다
-    const [commentText, setCommentText] = useState('');
+
 
     const onChangeCommentText = useCallback((e) => {
         setCommentText(e.target.value);

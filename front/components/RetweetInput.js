@@ -1,4 +1,4 @@
-import { Button, Input, Row, Col } from "antd";
+import { Button, Input } from "antd";
 import Form from "antd/lib/form/Form";
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,8 +18,7 @@ const RetweetInputForm = ({ post }) => {
     // const { nickname } = useSelector((state) => state.user.me);
 
     const { reTweetDone, reTweetLoading } = useSelector((state) => state.post);
-    const { logInDone } = useSelector((state) => state.user);
-    const { id } = logInDone && useSelector((state) => state.user);
+    const id = useSelector((state) => state.user.me && state.user.me.id);
 
     //input form에 입력되는 state, 커스텀 훅스를 사용해서 입력되는 변화를 바로 commentText state로 받아온다
     const [retweetText, setRetweetText] = useState('');
@@ -35,6 +34,9 @@ const RetweetInputForm = ({ post }) => {
     });
 
     const onSubmitRetweet = useCallback(() => {
+        console.log('@@@@@@@');
+        console.log(id);
+        console.log('@@@@@@@');
         if (!id) { return alert('Please login for service'); }
         dispatch({
             type: RETWEET_REQUEST,
