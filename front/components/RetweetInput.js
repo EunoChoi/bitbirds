@@ -47,7 +47,7 @@ const RetweetInputForm = ({ post }) => {
             },
         });
         window.scrollTo(0, 0);
-    }, [post.id, id]);
+    }, [post.id, id, retweetText]);
 
     return (
         <>
