@@ -49,6 +49,7 @@ app.use(session({
     saveUninitialized: false,
     resave: false,
     secret: process.env.COOKIE_SECRET, //이거 통해서 랜덤 토큰이 생성된다. 코드가 털리면 해킹 가능
+    //서로 다른 pc간 쿠키값을 주고 받기 위한 설정
     cookie: {
         httpOnly: true,
         secure: false,
@@ -72,6 +73,14 @@ app.use('/user', userRouter);
 
 //로컬호스트 3065로 서버를 실행, 이 서버에 프론트엔드 코드에서 접근해서 데이터를 주고받는다
 //aws 80포트 뚤어둠
-app.listen(80, () => {
-    console.log('server on');
+let backPort = 100;
+if (process.env.NODE_ENV === 'production') {
+    backPort = 80;
+}
+else if (process.env.NODE_ENV === 'development') {
+    backPort = 3065;
+}
+
+app.listen(backPort, () => {
+    console.log('server on', backPort, process.env.NODE_ENV);
 });
