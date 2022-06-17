@@ -116,7 +116,7 @@ function* addPost(action) {
 
 //retweet
 function retweetAPI(data) {
-    return axios.post(`/post/${data.postId}/retweet`);
+    return axios.post(`/post/${data.postId}/retweet`, data);
 }
 function* retweet(action) {
     //action에서 data꺼내서 addPostAPI로 전달된다, 흐름 파악 잘해야함

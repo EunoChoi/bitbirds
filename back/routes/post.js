@@ -179,7 +179,7 @@ router.post('/:postId/retweet', async (req, res, next) => {
         const retweet = await Post.create({
             UserId: req.user.id,
             RetweetId: originPostId,
-            content: 'retweet',
+            content: req.body.content,
         })
 
         //프론트에 넘겨주기 위해 오리진 포스트의 내용을 추가한다, include 

@@ -15,6 +15,7 @@ import PostImages from "./PostImages";
 import PostCardContent from "./PostCardContent";
 import CommentInputForm from "./CommentInputForm";
 import { DELETE_POST_REQUEST, LIKE_POST_REQUEST, UNLIKE_POST_REQUEST, RETWEET_REQUEST } from "../reducers/post";
+import RetweetInputForm from "./RetweetInput";
 
 //mainPost[] 배열안 value들이 props로 전달되었다
 const PostCard = ({ post }) => {
@@ -31,6 +32,12 @@ const PostCard = ({ post }) => {
 
     //toggle state, 일단 false넣어둠, 이후에 리덕스에서 불러오도록 수정
     const [toggleComment, setToggleComment] = useState(false);
+    const [toggleRetweet, setToggleRetweet] = useState(false);
+
+    const onToggleRetweet = useCallback(() => {
+        setToggleRetweet((c) => !c)
+        setToggleComment(false)
+    }, [])
 
     const onRetweet = useCallback(() => {
         if (!id) { return alert('Please login for service'); }
@@ -59,6 +66,7 @@ const PostCard = ({ post }) => {
 
     const onToggleComment = useCallback(() => {
         setToggleComment(c => !c);
+        setToggleRetweet(false)
     }, []);
 
     const deletePost = useCallback(() => {
@@ -84,20 +92,19 @@ const PostCard = ({ post }) => {
                         <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <span style={{ color: 'grey' }}>{moment(post.createdAt).format('MMM Do YY, h:mm')}</span>
                             <div>
-                                <Link href={userInfoUrl}><Button>User Info</Button></Link>
+                                <Link href={userInfoUrl}><Button>Info</Button></Link>
                                 {id && <FollowButton post={post} />}
                             </div>
                         </div>}
 
                     //action옵션에 antd에서 지원하는 버튼 삽입
                     actions={[
-                        <RetweetOutlined key='retweet' onClick={onRetweet} />,
+                        <RetweetOutlined key='retweet' onClick={onToggleRetweet} />,
 
                         // ToggleLike가 true일때 빨간색 하트가 나타난다
                         like ? <span onClick={onUnLike}><HeartTwoTone twoToneColor='#eb2f96' key='heart' /> {post.Likers.length}</span>
                             : <span onClick={onLike}><HeartOutlined key='heart' /> {post.Likers.length}</span>,
-
-                        <span><MessageOutlined key='comment' onClick={onToggleComment} /> {post.Comments.length}</span>,
+                        <span onClick={onToggleComment}><MessageOutlined key='comment' /> {post.Comments.length}</span>,
 
                         //popover는 ...버튼 hover시 펼쳐진다.
                         <Popover key='more' content={(
@@ -118,7 +125,7 @@ const PostCard = ({ post }) => {
 
                     <Card.Meta
                         avatar={post.Retweet ? null : <Avatar>{post.User.nickname && post.User.nickname[0]}</Avatar>}
-                        title={post.RetweetId === null ? post.User.nickname : `💡 ${post.User.nickname}`}
+                        title={post.RetweetId === null ? post.User.nickname : `${post.User.nickname}`}
                         description={<PostCardContent postData={post.content} />}
                     />
                     {/* 리트윗 카드 */}
@@ -138,15 +145,18 @@ const PostCard = ({ post }) => {
                                 />
                             </Card>
                         </div>
-
                         :
                         null}
 
                 </Card>
 
-
+                {toggleRetweet ?
+                    <RetweetInputForm post={post} />
+                    : null
+                }
                 {/* ToggleComment가 true일때 나타난다
                  comment가 여러개면 comment form 여러개 나와야하므로 map사용 */}
+
                 {toggleComment ?
                     <div>
                         {/* comment input area */}
