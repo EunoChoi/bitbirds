@@ -94,8 +94,8 @@ const PostCard = ({ post }) => {
                         <RetweetOutlined key='retweet' onClick={onRetweet} />,
 
                         // ToggleLike가 true일때 빨간색 하트가 나타난다
-                        like ? <span><HeartTwoTone twoToneColor='#eb2f96' key='heart' onClick={onUnLike} /> {post.Likers.length}</span>
-                            : <span><HeartOutlined key='heart' onClick={onLike} /> {post.Likers.length}</span>,
+                        like ? <span onClick={onUnLike}><HeartTwoTone twoToneColor='#eb2f96' key='heart' /> {post.Likers.length}</span>
+                            : <span onClick={onLike}><HeartOutlined key='heart' /> {post.Likers.length}</span>,
 
                         <span><MessageOutlined key='comment' onClick={onToggleComment} /> {post.Comments.length}</span>,
 
