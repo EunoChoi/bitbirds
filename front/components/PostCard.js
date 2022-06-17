@@ -123,7 +123,7 @@ const PostCard = ({ post }) => {
                     />
                     {/* 리트윗 카드 */}
                     {post.Retweet ?
-                        <div style={{ padding: '20px 30px 5px 30px' }}>
+                        <div style={{ padding: '20px 15px 5px 15px' }}>
                             <Card
                                 extra={
                                     <span style={{ color: 'grey' }}>{moment(post.Retweet.createdAt).format('MMM Do YY, h:mm')}</span>
