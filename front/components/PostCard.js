@@ -125,26 +125,25 @@ const PostCard = ({ post }) => {
 
                     <Card.Meta
                         avatar={post.Retweet ? null : <Avatar>{post.User.nickname && post.User.nickname[0]}</Avatar>}
-                        title={post.RetweetId === null ? post.User.nickname : `${post.User.nickname}'s Retweet`}
+                        title={post.RetweetId === null ? post.User.nickname : <span style={{ fontWeight: '600', color: 'mediumaquamarine' }}>{post.User.nickname} retweeted the post.</span>}
                         description={<PostCardContent postData={post.content} />}
                     />
                     {/* 리트윗 카드 */}
                     {post.Retweet ?
-                        <div style={{ padding: '20px 15px 5px 15px' }}>
-                            <Card
-                                extra={
-                                    <span style={{ color: 'grey' }}>{moment(post.Retweet.createdAt).format('MMM Do YY, h:mm')}</span>
-                                }
-                                //post에 image가 존재한다면 Card 컴포넌트 내부에 이미지를 삽입한다
-                                cover={post.Retweet && post.Retweet.Images && <PostImages images={post.Retweet && post.Retweet.Images} />}>
-                                {/* <div style={{ float: 'right', color: 'grey' }}>{moment(post.createdAt).format('MMM Do YY, h:mm')}</div> */}
-                                <Card.Meta
-                                    avatar={<Avatar>{post.Retweet && post.Retweet.User.nickname[0]}</Avatar>}
-                                    title={post.Retweet && post.Retweet.User.nickname}
-                                    description={<PostCardContent postData={post.Retweet && post.Retweet.content} />}
-                                />
-                            </Card>
-                        </div>
+                        <Card
+                            style={{ margin: '20px 15px 5px 15px', border: '1.5px solid rgba(0,0,0,0.1)' }}
+                            extra={
+                                <span style={{ color: 'grey' }}>{moment(post.Retweet.createdAt).format('MMM Do YY, h:mm')}</span>
+                            }
+                            //post에 image가 존재한다면 Card 컴포넌트 내부에 이미지를 삽입한다
+                            cover={post.Retweet && post.Retweet.Images && <PostImages images={post.Retweet && post.Retweet.Images} />}>
+                            {/* <div style={{ float: 'right', color: 'grey' }}>{moment(post.createdAt).format('MMM Do YY, h:mm')}</div> */}
+                            <Card.Meta
+                                avatar={<Avatar>{post.Retweet && post.Retweet.User.nickname[0]}</Avatar>}
+                                title={post.Retweet && post.Retweet.User.nickname}
+                                description={<PostCardContent postData={post.Retweet && post.Retweet.content} />}
+                            />
+                        </Card>
                         :
                         null}
 
@@ -177,7 +176,12 @@ const PostCard = ({ post }) => {
                                     <Comment
                                         author={item.User.nickname}
                                         avatar={<Avatar>{item.User.nickname[0]}</Avatar>}
-                                        content={item.content}
+                                        content={
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                                <span>{item.content}</span>
+                                                {/* 로그인 유저와 댓글 작성자가 동일할때만 보이도록 한다 */}
+                                                <Button>Delete</Button>
+                                            </div>}
                                     />
                                 </li>
                             )}
