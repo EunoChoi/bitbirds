@@ -3,8 +3,6 @@
 제로초님의 리액트강의를 학습하면서 제작한 프로젝트입니다.
 <div>프론트엔드 : next.js, antd, redux, redux saga</div>
 <div>백엔드 : express, mysql[시퀄라이즈] </div>
-<div>위 나열된 기술스택들을 사용하였고 aws로 배포하여 아래 링크를통해 체험 가능합니다</div>
-<h3><a href='http://bitbirds.site'> 🔗 bitbirds</a></h3>
 
 <h3>추가 예정 기능</h3>
 <ul>
